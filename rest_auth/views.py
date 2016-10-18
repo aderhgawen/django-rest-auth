@@ -40,6 +40,7 @@ class LoginView(GenericAPIView):
     permission_classes = (AllowAny,)
     serializer_class = LoginSerializer
     token_model = TokenModel
+    throttle_scope = 'login_view'
 
     def process_login(self):
         django_login(self.request, self.user)
